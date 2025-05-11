@@ -1,0 +1,475 @@
+/* Dashboard Layout Styles */
+#root {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* Sidebar styles */
+.sidebar {
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: white;
+  box-shadow: var(--posto-shadow);
+  z-index: 1030;
+  transition: width var(--posto-transition);
+}
+
+.sidebar .offcanvas-header {
+  padding: 1.25rem;
+}
+
+.sidebar .nav-link {
+  color: var(--posto-text-secondary);
+  transition: all var(--posto-transition-fast);
+  white-space: nowrap;
+  border-radius: 0;
+  margin: 0.25rem 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: var(--posto-border-radius);
+  display: flex;
+  align-items: center;
+}
+
+.sidebar .nav-link:hover {
+  background-color: var(--posto-light-blue);
+  color: var(--posto-primary);
+  transform: translateX(5px);
+}
+
+.sidebar .nav-link.active {
+  background-color: var(--posto-primary);
+  color: white;
+  box-shadow: var(--posto-shadow-primary);
+}
+
+.sidebar .nav-link svg {
+  margin-right: 0.75rem;
+  font-size: 1.25rem;
+  transition: transform var(--posto-transition-fast);
+}
+
+.sidebar .nav-link:hover svg {
+  transform: scale(1.1);
+}
+
+/* Icon-only sidebar styles */
+.sidebar-collapsed {
+  width: 70px !important;
+}
+
+.sidebar-collapsed .nav-link {
+  text-align: center;
+  padding: 0.75rem 0;
+  margin: 0.5rem auto;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.sidebar-collapsed .nav-link svg {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+/* Sidebar toggle button animation */
+.sidebar-toggle {
+  background: transparent;
+  border: none;
+  color: var(--posto-text-secondary);
+  transition: all var(--posto-transition-fast);
+}
+
+.sidebar-toggle:hover {
+  color: var(--posto-primary);
+  transform: scale(1.1);
+}
+
+.sidebar-toggle:focus {
+  box-shadow: none;
+}
+
+/* Navbar styles */
+.navbar {
+  background-color: white;
+  box-shadow: var(--posto-shadow);
+  padding: 0.75rem 1.5rem;
+  transition: all var(--posto-transition);
+}
+
+.navbar-brand {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--posto-primary);
+  letter-spacing: 0.5px;
+}
+
+.navbar-brand span {
+  color: var(--posto-secondary);
+}
+
+.navbar .dropdown-toggle::after {
+  display: none;
+}
+
+.navbar .dropdown-menu {
+  border: none;
+  box-shadow: var(--posto-shadow);
+  border-radius: var(--posto-border-radius);
+  padding: 0.5rem;
+}
+
+.navbar .dropdown-item {
+  padding: 0.5rem 1rem;
+  border-radius: var(--posto-border-radius-sm);
+  transition: all var(--posto-transition-fast);
+}
+
+.navbar .dropdown-item:hover {
+  background-color: var(--posto-light-blue);
+  color: var(--posto-primary);
+}
+
+.navbar .dropdown-item:active {
+  background-color: var(--posto-primary);
+  color: white;
+}
+
+.navbar .nav-item {
+  margin: 0 0.25rem;
+}
+
+.navbar .nav-link {
+  color: var(--posto-text-secondary);
+  transition: all var(--posto-transition-fast);
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--posto-border-radius);
+}
+
+.navbar .nav-link:hover {
+  color: var(--posto-primary);
+  background-color: var(--posto-light-blue);
+}
+
+/* Main content area */
+.main-content {
+  transition: all var(--posto-transition);
+  background-color: var(--posto-background);
+  min-height: 100vh;
+  padding: 1.5rem;
+}
+
+/* Card styles with animations */
+.card {
+  border-radius: var(--posto-border-radius-lg);
+  box-shadow: var(--posto-shadow);
+  margin-bottom: 1.5rem;
+  border: none;
+  overflow: hidden;
+  transition: all var(--posto-transition);
+}
+
+.card:hover {
+  box-shadow: var(--posto-shadow-lg);
+  transform: translateY(-5px);
+}
+
+.card-header {
+  background-color: transparent;
+  border-bottom: 1px solid var(--posto-border);
+  padding: 1.25rem 1.5rem;
+  font-weight: 600;
+  color: var(--posto-text);
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+.card-footer {
+  background-color: transparent;
+  border-top: 1px solid var(--posto-border);
+  padding: 1.25rem 1.5rem;
+}
+
+/* Stats cards */
+.stats-card {
+  transition: all var(--posto-transition);
+  border-left: 4px solid transparent;
+}
+
+.stats-card:hover {
+  transform: translateY(-5px);
+}
+
+.stats-card.primary {
+  border-left-color: var(--posto-primary);
+}
+
+.stats-card.secondary {
+  border-left-color: var(--posto-secondary);
+}
+
+.stats-card.success {
+  border-left-color: var(--posto-success);
+}
+
+.stats-card.warning {
+  border-left-color: var(--posto-warning);
+}
+
+.stats-card .icon-wrapper {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: var(--posto-light-blue);
+  margin-bottom: 1rem;
+}
+
+.stats-card .stats-value {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--posto-text);
+}
+
+.stats-card .stats-label {
+  color: var(--posto-text-secondary);
+  font-size: 0.875rem;
+}
+
+/* Search input styles with animation */
+.posto-search-input {
+  padding-left: 2.75rem;
+  position: relative;
+  border-radius: var(--posto-border-radius);
+  border: 1px solid var(--posto-border);
+  transition: all var(--posto-transition-fast);
+  box-shadow: var(--posto-shadow-sm);
+}
+
+.posto-search-input:focus {
+  border-color: var(--posto-primary);
+  box-shadow: 0 0 0 3px rgba(21, 101, 192, 0.15);
+}
+
+.search-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--posto-text-secondary);
+  z-index: 10;
+  transition: color var(--posto-transition-fast);
+}
+
+.posto-search-input:focus + .search-icon {
+  color: var(--posto-primary);
+}
+
+.form-group {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+/* Table styles with animations */
+.table-responsive {
+  overflow-x: auto;
+  border-radius: var(--posto-border-radius);
+  box-shadow: var(--posto-shadow);
+}
+
+.table {
+  margin-bottom: 0;
+}
+
+.table thead th {
+  background-color: rgba(227, 242, 253, 0.5);
+  color: var(--posto-text);
+  font-weight: 600;
+  border-top: none;
+  padding: 1rem;
+}
+
+.table tbody tr {
+  transition: all var(--posto-transition-fast);
+}
+
+.table tbody tr:hover {
+  background-color: var(--posto-light-blue);
+  transform: scale(1.01);
+  box-shadow: var(--posto-shadow-sm);
+  z-index: 1;
+  position: relative;
+}
+
+.table td {
+  padding: 1rem;
+  vertical-align: middle;
+}
+
+/* Pagination styles with animations */
+.pagination {
+  margin-bottom: 0;
+}
+
+.pagination .page-item {
+  margin: 0 0.125rem;
+}
+
+.pagination .page-link {
+  border-radius: var(--posto-border-radius-sm);
+  color: var(--posto-primary);
+  border: 1px solid var(--posto-border);
+  transition: all var(--posto-transition-fast);
+  padding: 0.5rem 0.75rem;
+}
+
+.pagination .page-link:hover {
+  background-color: var(--posto-light-blue);
+  border-color: var(--posto-secondary);
+  color: var(--posto-primary-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--posto-shadow-sm);
+}
+
+.pagination .page-item.active .page-link {
+  background-color: var(--posto-primary);
+  border-color: var(--posto-primary);
+  box-shadow: var(--posto-shadow-primary);
+}
+
+/* Badge styles with animations */
+.badge {
+  font-weight: 500;
+  padding: 0.5em 0.75em;
+  border-radius: var(--posto-border-radius-pill);
+  transition: all var(--posto-transition-fast);
+}
+
+.badge:hover {
+  transform: scale(1.05);
+}
+
+/* Button link styles for table actions with animations */
+.btn-link {
+  color: var(--posto-primary);
+  padding: 0.5rem;
+  transition: all var(--posto-transition-fast);
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-link:hover {
+  background-color: var(--posto-light-blue);
+  transform: scale(1.1);
+  color: var(--posto-primary-dark);
+}
+
+.btn-link.text-danger:hover {
+  background-color: rgba(244, 67, 54, 0.1);
+}
+
+.btn-link.text-success:hover {
+  background-color: rgba(76, 175, 80, 0.1);
+}
+
+.btn-link.text-warning:hover {
+  background-color: rgba(255, 152, 0, 0.1);
+}
+
+.btn-link.text-info:hover {
+  background-color: rgba(33, 150, 243, 0.1);
+}
+
+/* Modal animations */
+.modal-content {
+  border: none;
+  border-radius: var(--posto-border-radius-lg);
+  box-shadow: var(--posto-shadow-lg);
+  overflow: hidden;
+}
+
+.modal-header {
+  border-bottom: 1px solid var(--posto-border);
+  padding: 1.25rem 1.5rem;
+}
+
+.modal-body {
+  padding: 1.5rem;
+}
+
+.modal-footer {
+  border-top: 1px solid var(--posto-border);
+  padding: 1.25rem 1.5rem;
+}
+
+.modal.fade .modal-dialog {
+  transition: transform 0.3s ease-out;
+}
+
+.modal.show .modal-dialog {
+  transform: none;
+}
+
+/* Animations */
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-in-right {
+  animation: slideInRight 0.5s ease-in-out;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Loading spinner */
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.loading-spinner .spinner-border {
+  width: 3rem;
+  height: 3rem;
+  border-width: 0.25rem;
+  color: var(--posto-primary);
+}

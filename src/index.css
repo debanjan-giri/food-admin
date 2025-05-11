@@ -1,0 +1,559 @@
+:root {
+  /* Posto brand colors - Enhanced Blue & White Theme */
+  --posto-primary: #1565c0; /* Deep blue as primary */
+  --posto-primary-dark: #0d47a1; /* Darker blue for hover states */
+  --posto-primary-light: #1976d2; /* Lighter primary for gradients */
+  --posto-secondary: #64b5f6; /* Lighter blue as secondary */
+  --posto-secondary-dark: #4da3f5; /* Darker secondary for hover states */
+  --posto-background: #ffffff; /* White background */
+  --posto-text: #0d47a1; /* Dark blue text */
+  --posto-text-secondary: #546e7a; /* Secondary text color */
+  --posto-light-blue: #e3f2fd; /* Very light blue for accents */
+  --posto-gray: #f0f2f5; /* Light gray for subtle backgrounds */
+  --posto-border: #e0e0e0; /* Border color */
+  --posto-success: #4caf50; /* Success color */
+  --posto-warning: #ff9800; /* Warning color */
+  --posto-danger: #f44336; /* Danger color */
+  --posto-info: #2196f3; /* Info color */
+
+  /* Shadow variables */
+  --posto-shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --posto-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --posto-shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+  --posto-shadow-primary: 0 4px 12px rgba(21, 101, 192, 0.15);
+
+  /* Animation variables */
+  --posto-transition-fast: 0.15s ease;
+  --posto-transition: 0.25s ease;
+  --posto-transition-slow: 0.4s ease;
+
+  /* Border radius */
+  --posto-border-radius-sm: 4px;
+  --posto-border-radius: 8px;
+  --posto-border-radius-lg: 12px;
+  --posto-border-radius-xl: 16px;
+  --posto-border-radius-pill: 50rem;
+
+  /* Font settings */
+  font-family: "Poppins", "Roboto", "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  /* Other settings */
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+/* Link styles */
+a {
+  font-weight: 500;
+  color: var(--posto-primary);
+  text-decoration: inherit;
+  transition: color var(--posto-transition-fast);
+  position: relative;
+}
+
+a:hover {
+  color: var(--posto-secondary);
+}
+
+a.animated-link::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: var(--posto-secondary);
+  transition: width var(--posto-transition);
+}
+
+a.animated-link:hover::after {
+  width: 100%;
+}
+
+/* Body styles */
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: var(--posto-background);
+  color: var(--posto-text);
+  background-image: linear-gradient(
+    135deg,
+    var(--posto-background) 0%,
+    var(--posto-light-blue) 100%
+  );
+  background-attachment: fixed;
+  overflow-x: hidden;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
+  margin-bottom: 0.5em;
+  color: var(--posto-text);
+}
+
+h1 {
+  font-size: 2.5rem;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 2rem;
+  line-height: 1.3;
+}
+
+h3 {
+  font-size: 1.75rem;
+  line-height: 1.4;
+}
+
+h4 {
+  font-size: 1.5rem;
+  line-height: 1.4;
+}
+
+p {
+  margin-bottom: 1rem;
+  color: var(--posto-text-secondary);
+}
+
+/* Button styles */
+button {
+  border-radius: var(--posto-border-radius);
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: var(--posto-primary);
+  color: white;
+  cursor: pointer;
+  transition: all var(--posto-transition);
+  box-shadow: var(--posto-shadow-sm);
+}
+
+button:hover {
+  background-color: var(--posto-primary-light);
+  border-color: var(--posto-primary-light);
+  box-shadow: var(--posto-shadow);
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(0);
+  box-shadow: var(--posto-shadow-sm);
+}
+
+button:focus,
+button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(21, 101, 192, 0.25);
+}
+
+/* Bootstrap overrides */
+.btn {
+  border-radius: var(--posto-border-radius);
+  padding: 0.5rem 1.25rem;
+  font-weight: 500;
+  transition: all var(--posto-transition);
+  box-shadow: var(--posto-shadow-sm);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.5s, height 0.5s;
+}
+
+.btn:active::after {
+  width: 300px;
+  height: 300px;
+  opacity: 0;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--posto-shadow);
+}
+
+.btn:active {
+  transform: translateY(0);
+  box-shadow: var(--posto-shadow-sm);
+}
+
+.btn-primary {
+  background-color: var(--posto-primary);
+  border-color: var(--posto-primary);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: var(--posto-primary-light);
+  border-color: var(--posto-primary-light);
+}
+
+.btn-secondary {
+  background-color: var(--posto-secondary);
+  border-color: var(--posto-secondary);
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus {
+  background-color: var(--posto-secondary-dark);
+  border-color: var(--posto-secondary-dark);
+}
+
+.btn-success {
+  background-color: var(--posto-success);
+  border-color: var(--posto-success);
+}
+
+.btn-danger {
+  background-color: var(--posto-danger);
+  border-color: var(--posto-danger);
+}
+
+.btn-warning {
+  background-color: var(--posto-warning);
+  border-color: var(--posto-warning);
+}
+
+.btn-info {
+  background-color: var(--posto-info);
+  border-color: var(--posto-info);
+}
+
+.btn-link {
+  box-shadow: none;
+}
+
+.btn-link:hover {
+  box-shadow: none;
+  transform: none;
+}
+
+/* Form controls */
+.form-control {
+  border-radius: var(--posto-border-radius);
+  border-color: var(--posto-border);
+  padding: 0.625rem 1rem;
+  transition: all var(--posto-transition-fast);
+}
+
+.form-control:focus {
+  border-color: var(--posto-primary);
+  box-shadow: 0 0 0 3px rgba(21, 101, 192, 0.15);
+}
+
+.form-select {
+  border-radius: var(--posto-border-radius);
+  border-color: var(--posto-border);
+  padding: 0.625rem 1rem;
+  transition: all var(--posto-transition-fast);
+}
+
+.form-select:focus {
+  border-color: var(--posto-primary);
+  box-shadow: 0 0 0 3px rgba(21, 101, 192, 0.15);
+}
+
+/* Card styles */
+.card {
+  border-radius: var(--posto-border-radius-lg);
+  border: none;
+  box-shadow: var(--posto-shadow);
+  transition: transform var(--posto-transition),
+    box-shadow var(--posto-transition);
+  overflow: hidden;
+}
+
+.card:hover {
+  box-shadow: var(--posto-shadow-lg);
+}
+
+.card-header {
+  background-color: transparent;
+  border-bottom: 1px solid var(--posto-border);
+  padding: 1.25rem 1.5rem;
+  font-weight: 600;
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+.card-footer {
+  background-color: transparent;
+  border-top: 1px solid var(--posto-border);
+  padding: 1.25rem 1.5rem;
+}
+
+/* Table styles */
+.table {
+  --bs-table-hover-bg: var(--posto-light-blue);
+  --bs-table-hover-color: var(--posto-text);
+  border-color: var(--posto-border);
+}
+
+.table th {
+  font-weight: 600;
+  color: var(--posto-text);
+  border-top: none;
+  background-color: rgba(227, 242, 253, 0.5);
+}
+
+.table td {
+  vertical-align: middle;
+}
+
+/* Badge styles */
+.badge {
+  font-weight: 500;
+  padding: 0.5em 0.75em;
+  border-radius: var(--posto-border-radius-pill);
+}
+
+/* Navbar */
+.navbar {
+  box-shadow: var(--posto-shadow);
+}
+
+.navbar-brand {
+  color: var(--posto-primary);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* Pagination */
+.pagination .page-link {
+  border-radius: var(--posto-border-radius-sm);
+  margin: 0 0.125rem;
+  color: var(--posto-primary);
+  border: 1px solid var(--posto-border);
+  transition: all var(--posto-transition-fast);
+}
+
+.pagination .page-link:hover {
+  background-color: var(--posto-light-blue);
+  border-color: var(--posto-secondary);
+  color: var(--posto-primary-dark);
+}
+
+.pagination .page-item.active .page-link {
+  background-color: var(--posto-primary);
+  border-color: var(--posto-primary);
+}
+
+/* Custom classes */
+.posto-bg-primary {
+  background-color: var(--posto-primary);
+  color: white;
+}
+
+.posto-bg-secondary {
+  background-color: var(--posto-secondary);
+  color: white;
+}
+
+.posto-text-primary {
+  color: var(--posto-primary);
+}
+
+.posto-text-secondary {
+  color: var(--posto-secondary);
+}
+
+/* Blue-White Theme Additional Classes */
+.posto-bg-light {
+  background-color: var(--posto-light-blue);
+}
+
+.posto-bg-gray {
+  background-color: var(--posto-gray);
+}
+
+.posto-border-primary {
+  border: 1px solid var(--posto-primary);
+}
+
+.posto-border-secondary {
+  border: 1px solid var(--posto-secondary);
+}
+
+/* Shadow utilities */
+.posto-shadow-sm {
+  box-shadow: var(--posto-shadow-sm);
+}
+
+.posto-shadow {
+  box-shadow: var(--posto-shadow);
+}
+
+.posto-shadow-lg {
+  box-shadow: var(--posto-shadow-lg);
+}
+
+.posto-shadow-primary {
+  box-shadow: var(--posto-shadow-primary);
+}
+
+/* Animation utilities */
+.posto-hover-lift {
+  transition: transform var(--posto-transition);
+}
+
+.posto-hover-lift:hover {
+  transform: translateY(-5px);
+}
+
+.posto-hover-scale {
+  transition: transform var(--posto-transition);
+}
+
+.posto-hover-scale:hover {
+  transform: scale(1.05);
+}
+
+/* Gradient backgrounds */
+.posto-gradient-primary {
+  background: linear-gradient(
+    135deg,
+    var(--posto-primary) 0%,
+    var(--posto-primary-light) 100%
+  );
+  color: white;
+}
+
+.posto-gradient-blue {
+  background: linear-gradient(
+    135deg,
+    var(--posto-primary) 0%,
+    var(--posto-secondary) 100%
+  );
+  color: white;
+}
+
+/* Dark mode styles */
+.dark-mode {
+  --posto-background: #121212;
+  --posto-text: #e3f2fd;
+  --posto-text-secondary: #b0bec5;
+  --posto-light-blue: rgba(21, 101, 192, 0.1);
+  --posto-gray: #1e1e1e;
+  --posto-border: #333333;
+
+  color-scheme: dark;
+}
+
+.dark-mode body {
+  background-image: linear-gradient(
+    135deg,
+    var(--posto-background) 0%,
+    #1a237e10 100%
+  );
+}
+
+.dark-mode .navbar,
+.dark-mode .sidebar,
+.dark-mode .card,
+.dark-mode .dropdown-menu,
+.dark-mode .modal-content {
+  background-color: #1e1e1e;
+  border-color: var(--posto-border);
+}
+
+.dark-mode .table {
+  color: var(--posto-text-secondary);
+}
+
+.dark-mode .table th {
+  background-color: rgba(21, 101, 192, 0.1);
+}
+
+.dark-mode .table-hover tbody tr:hover {
+  background-color: rgba(21, 101, 192, 0.05);
+  color: var(--posto-text);
+}
+
+.dark-mode .form-control,
+.dark-mode .form-select {
+  background-color: #2c2c2c;
+  border-color: var(--posto-border);
+  color: var(--posto-text);
+}
+
+.dark-mode .form-control:focus,
+.dark-mode .form-select:focus {
+  background-color: #2c2c2c;
+  border-color: var(--posto-primary);
+  color: var(--posto-text);
+}
+
+.dark-mode .nav-link {
+  color: var(--posto-text-secondary);
+}
+
+.dark-mode .nav-link:hover {
+  background-color: rgba(21, 101, 192, 0.1);
+  color: var(--posto-text);
+}
+
+.dark-mode .dropdown-item {
+  color: var(--posto-text-secondary);
+}
+
+.dark-mode .dropdown-item:hover {
+  background-color: rgba(21, 101, 192, 0.1);
+  color: var(--posto-text);
+}
+
+.dark-mode .dropdown-divider {
+  border-color: var(--posto-border);
+}
+
+.dark-mode .text-muted {
+  color: #78909c !important;
+}
+
+.dark-mode .border-bottom,
+.dark-mode .border-top,
+.dark-mode .border-start,
+.dark-mode .border-end {
+  border-color: var(--posto-border) !important;
+}
+
+/* Animation for dark mode transition */
+body,
+.navbar,
+.sidebar,
+.card,
+.dropdown-menu,
+.modal-content,
+.table,
+.form-control,
+.form-select,
+.nav-link,
+.dropdown-item {
+  transition: background-color var(--posto-transition),
+    color var(--posto-transition), border-color var(--posto-transition);
+}

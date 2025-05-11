@@ -1,0 +1,113 @@
+/* Performance optimizations for CSS */
+
+/* Reduce paint operations with will-change */
+.posto-hover-lift,
+.posto-hover-scale,
+.btn:hover,
+.card:hover {
+  will-change: transform;
+}
+
+/* Optimize animations with hardware acceleration */
+.posto-hover-lift,
+.posto-hover-scale,
+.btn,
+.card,
+.navbar,
+.sidebar,
+.dropdown-menu,
+.modal-content {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Optimize ApexCharts rendering */
+.apexcharts-canvas {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: transform;
+}
+
+/* Reduce repaints for fixed elements */
+.navbar-fixed-top,
+.sidebar {
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+/* Optimize scrolling performance */
+.table-responsive,
+.scrollable-content {
+  -webkit-overflow-scrolling: touch;
+  overflow-scrolling: touch;
+  will-change: scroll-position;
+}
+
+/* Optimize transitions */
+.transition-optimized {
+  transition-property: transform, opacity;
+  will-change: transform, opacity;
+}
+
+/* Reduce layout thrashing with contain */
+.layout-contain {
+  contain: layout;
+}
+
+/* Optimize images */
+img {
+  content-visibility: auto;
+}
+
+/* Optimize large tables */
+.large-table {
+  content-visibility: auto;
+  contain-intrinsic-size: 1000px;
+}
+
+/* Optimize offscreen content */
+.offscreen-content {
+  content-visibility: auto;
+  contain-intrinsic-size: 300px;
+}
+
+/* Optimize modal animations */
+.modal {
+  will-change: opacity, transform;
+}
+
+/* Optimize dropdown animations */
+.dropdown-menu {
+  will-change: opacity, transform;
+}
+
+/* Optimize chart containers */
+.chart-container {
+  contain: content;
+  will-change: transform;
+}
+
+/* Optimize for print */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  body {
+    background: none !important;
+    color: black !important;
+  }
+  
+  .card {
+    box-shadow: none !important;
+    border: 1px solid #ddd !important;
+  }
+}
+
+/* Optimize for mobile */
+@media (max-width: 768px) {
+  .mobile-optimized {
+    contain: content;
+    content-visibility: auto;
+  }
+}
